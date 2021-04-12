@@ -1,0 +1,22 @@
+{
+    "items" : [
+        {"category":"a", "type":"colorA"},
+        {"category":"b", "type":"colorA"},
+        {"category":"c", "type":"colorA"},
+        {"category":"a", "type":"colorB"},
+        {"category":"b", "type":"colorB"},
+        {"category":"c", "type":"colorB"},
+        {"category":"a", "type":"colorC"},
+        {"category":"b", "type":"colorC"},
+        {"category":"c", "type":"colorC"},
+        {"category":"a", "type":"colorA"},
+        {"category":"b", "type":"colorA"},
+        {"category":"c", "type":"colorA"},
+        {"category":"a", "type":"colorB"},
+        {"category":"b", "type":"colorB"},
+        {"category":"c", "type":"colorB"},
+        {"category":"a", "type":"colorC"},
+        {"category":"b", "type":"colorC"},
+        {"category":"c", "type":"colorC"}
+    ]
+}
