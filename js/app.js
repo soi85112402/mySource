@@ -1,6 +1,6 @@
 'use strict';
 
-const qA = (sel)=> document.querySelectorAll(sel);
+const qA = sel => document.querySelectorAll(sel);
 
 window.onload = () => {
     loadItems()
@@ -32,7 +32,20 @@ function onbtnClick(e, items){
         return;
     }
 
-    displayItems(items.filter(item => item[key] === value));
+    updateItems(items, key, value);
+}
+
+function updateItems(items, key, value) {
+    
+    const itemsList = document.querySelectorAll('.item-list li');
+
+    items.forEach((item,i) => {
+        if(item[key] === value) {
+            itemsList[i].classList.remove('invisible');
+        }else{
+            itemsList[i].classList.add('invisible');
+        }
+    });
 }
 
 function displayItems(items){

@@ -44,10 +44,11 @@ body{
 }
 
 .item-list li{
-    display: block;
     height: 30px;
     line-height: 30px;
     border-bottom: 1px solid #000;
     padding-left: 20px;
     color: var(--color-black);
 }
+
+.invisible{display: none;}
