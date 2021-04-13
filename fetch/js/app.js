@@ -4,11 +4,11 @@ const qA = sel => document.querySelectorAll(sel);
 
 window.onload = () => {
     loadItems()
-    .then(items => {
-        displayItems(items);
-        setEventListener(items);
-    })
-    .catch(console.log);
+        .then(items => {
+            displayItems(items);
+            setEventListener(items);
+        })
+        .catch(console.log);
 }
 
 function loadItems(){
