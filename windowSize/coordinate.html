@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordnate</title>
+    <style>
+body{
+    background: #000;
+}
+div{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 4px;
+    background: #fff;
+}
+div.spacial{
+    background: #f40;
+}
+.btns{
+    position: fixed;
+    right: 0;top: 0;
+}
+
+    </style>
+</head>
+<body>
+    <ul class="btns">
+        <li><button data-type="by">by 100px</button></li>
+        <li><button data-type="to">to 1000px</button></li>
+        <li><button data-type="into">into spaical box</button></li>
+    </ul>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="spacial"></div>
+    <div></div>
+    <div></div>
+    
+    <script>
+const spacial = document.querySelector('.spacial');
+document.querySelector('.btns').addEventListener('click', e => {
+    const type = e.target.dataset.type;
+
+    if (type == undefined) return;
+
+    switch(type) {
+        case 'by':
+            // scrollBy(0,100);
+            scrollBy({
+                left: 0,
+                top: 100,
+                behavior: 'smooth'
+            });
+            break;
+        case 'to':
+            scrollTo({
+                top: 1000,
+                behavior: 'smooth'
+            });
+            break;
+        case 'into':
+            scrollBy({
+                left: spacial.getBoundingClientRect().x,
+                top: spacial.getBoundingClientRect().y,
+                behavior: 'smooth'
+            });
+            break;
+
+    }
+})
+
+    </script>
+</body>
+</html>
