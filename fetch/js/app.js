@@ -20,10 +20,10 @@ function loadItems(){
 function setEventListener(items){
     const btns = document.querySelector('.sorting-list');
 
-    btns.addEventListener('click', e => onbtnClick(e, items));
+    btns.addEventListener('click', e => onBtnClick(e, items));
 }
 
-function onbtnClick(e, items){
+function onBtnClick(e, items){
     const dataset = e.target.dataset;
     const key = dataset.key;
     const value = dataset.value;
