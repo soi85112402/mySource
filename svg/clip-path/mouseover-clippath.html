@@ -33,7 +33,6 @@
 .circle{
     width: 100%;
     height: 100%;
-    transform: all 1000ms linear;
     clip-path: circle(5% at 50% 50%);
 }
 
@@ -49,13 +48,16 @@
         <!-- <div class="img circle"></div> -->
     </div>
 <script>
+const wrap = document.querySelector('.wrap');
 const circleElem = document.querySelector('.circle');
-const moveEvent = e => {
-    moveCircle(defaultSize,e);
-}
+
 let defaultSize = 5;
 let interval;
 let mouseEvent;
+
+const moveEvent = e => {
+    moveCircle(defaultSize,e);
+}
 const downEvent = e => {
     clearInterval(interval);
     interval = setInterval(() => {
@@ -79,9 +81,9 @@ const moveCircle = (size,event) => {
 }
 
 
-document.querySelector('.wrap').addEventListener('mousemove', moveEvent);
-document.querySelector('.wrap').addEventListener('mousedown', downEvent);
-document.querySelector('.wrap').addEventListener('mouseup', upEvent);
+wrap.addEventListener('mousemove', moveEvent);
+wrap.addEventListener('mousedown', downEvent);
+wrap.addEventListener('mouseup',   upEvent);
 
     
 </script>    
