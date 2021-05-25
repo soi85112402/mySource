@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg gooey animation</title>
+    <link rel="stylesheet" href="./gooey.min.css">
+    <!-- <link rel="stylesheet" href="./livedemo.min.css"> -->
+
+    <script src="./jquery-2.2.3.min.js"></script>
+    <script src="./gooey.min.js"></script>
+<style>
+#gooey-v{margin-top: 400px; margin-left: 400px;}
+</style>
+</head>
+<body>
+    
+    <nav id="gooey-v">
+        <input type="checkbox" class="menu-open" name="menu-open4" id="menu-open4"/>
+        <label class="open-button" for="menu-open4">
+          <span class="burger burger-1"></span>
+          <span class="burger burger-2"></span>
+          <span class="burger burger-3"></span>
+        </label>
+        <a href="#" class="gooey-menu-item"> <i class="fa fa-train"></i> </a>
+        <a href="#" class="gooey-menu-item"> <i class="fa fa-bicycle"></i> </a>
+        <a href="#" class="gooey-menu-item"> <i class="fa fa-rocket"></i> </a>
+        <a href="#" class="gooey-menu-item"> <i class="fa fa-automobile"></i> </a>
+        <a href="#" class="gooey-menu-item"> <i class="fa fa-plane"></i> </a>
+       </nav>
+
+       <script>    
+
+$("#gooey-v").gooeymenu({
+    bgColor: "#68d099",
+    contentColor: "white",
+    // style: "circle",
+    style: "vertical",
+    horizontal: {
+        menuItemPosition: "glue"
+    },
+    // horizontal: {
+    //     menuItemPosition: "spaced"
+    // },
+    vertical: {
+        menuItemPosition: "spaced",
+        direction: "up"
+    },
+    circle: {
+        radius: 85
+    },
+    margin: "small",
+    size: 80,
+    bounce: false,
+    bounceLength: "small",
+    transitionStep: 100,
+    hover: "#68d099"
+});
+
+// $("#gooey-v").gooeymenu({
+    // style: "vertical",
+    // vertical: {
+    //     menuItemPosition: "spaced",
+    //     direction: "up"
+    // }
+// });
+       </script>
+</body>
+</html>

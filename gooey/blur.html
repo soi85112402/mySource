@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-2.2.3.min.js"></script>
+    <title>blur</title>
+<style>
+    body {
+  background: #f0f0f0;
+}
+
+.blobs{
+  /* filter:url('#goo'); */
+  filter:url('#goo-shadow0');
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  transition: transform 1s;
+}
+
+.blob{
+  position:absolute;
+  background:crimson;
+  left:140px;
+  top:120px;
+  width:110px;
+  height:110px;
+  line-height:100px;
+  text-align:center;
+  color:white;
+  font-size:40px;
+  border-radius:100%;
+  margin-top:-50px;
+  margin-left:-50px;
+  }
+  
+.s1 {
+    left: 140px;
+    background: #f40;
+    z-index: 1001;
+}
+.s2 {
+    left: 140px;
+    background: #f40;
+}
+.bg{
+    position: absolute;
+    left: 0;right: 0;
+    top: 0;
+    bottom: 0;
+    background: yellow;
+    z-index: -1;
+}
+</style>    
+</head>
+<body>
+
+ <div class="blobs">
+  <div class="blob s1">2</div>
+  <div class="blob s2">1</div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="goo" />
+      <feBlend in="SourceGraphic" in2="goo" />
+  	</filter>
+  </defs>
+</svg>
+<svg id="gooeySVG0" class="gooeySVG"><defs id="defs0"><filter id="goo-shadow0" overflow="hidden"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"></feColorMatrix><feGaussianBlur in="goo" stdDeviation="2" result="shadow"></feGaussianBlur><feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0 0" result="shadow"></feColorMatrix><feOffset in="shadow" dx="1" dy="1" result="shadow"></feOffset><feComposite in2="shadow" in="goo" result="goo"></feComposite><feComposite in2="goo" in="SourceGraphic" result="mix"></feComposite></filter><filter id="goo0"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix><feComposite in2="goo" in="SourceGraphic" result="mix"></feComposite></filter></defs></svg>
+<script>
+var s1 = document.querySelector(".s1");
+var s2 = document.querySelector(".s2");
+$('.blob.s1').click(() => {
+    $('.s2').animate({
+        'top' : '-=50px'
+    },500,()=>{
+            $('.s2').animate({
+            'top' : '+=50px',
+            'left' : '+=50px'
+        },500,()=>{
+                $('.s2').animate({
+                'top' : '-=50px',
+                'left' : '-=50px'
+            },500,()=>{
+                    $('.s2').animate({
+                    'top' : '-=50px',
+                    'left' : '+=50px'
+                },500)
+            })
+        })
+    })
+})
+</script>
+    
+</body>
+</html>
