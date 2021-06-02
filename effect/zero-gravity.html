@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+#target{
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition-duration: 0.5s;
+}
+</style>
+<script>
+function toggleAntigravity(e, off) {
+    if(off) { 
+        container.className  = ""; 
+        console.log("Killed")
+    } else {
+        let currentDir = container.className.split('-')[1]
+        const dirs = ['up','down','left','right'].filter(v => v !== currentDir)
+        const dir = dirs[Math.floor(Math.random() * dirs.length)]
+        container.className = "floating-" + dir
+    }
+}    
+</script>
+</head>
+<body>
+    <div id="target"></div>
+</body>
+</html>
