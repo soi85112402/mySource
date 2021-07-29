@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     
@@ -41,9 +47,13 @@ spotLight.position.set(0, 20, 8);
 spotLight.castShadow = true;
 scene.add(spotLight);
 
+//camera
 camera.position.x = 0;
 camera.position.y = 2;
 camera.position.z = 5;
+// const controls = new OrbitControls( camera, renderer.domElement );
+
+
 
 window.addEventListener('deviceorientation', function(e) {
     cube.rotation.x = e.alpha/100;
@@ -84,25 +94,39 @@ function onTouchEnd( event ) {
 var xSpeed = 1;
 var ySpeed = 1;
 
+
+
+    camera.position.x = radius * Math.cos( angle );  
+camera.position.z = radius * Math.sin( angle );
+angle += 0.01;
+
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
     let a = [0,0,0];
     switch (keyCode) {
         case 87 : 
+            camera.position.z -= ySpeed;
+            break;
+        case 83 :
+            camera.position.z += ySpeed;
+            break;
+        case 65 :
+            camera.position.x -= xSpeed;
+            break;
+        case 68 :
+            camera.position.x += xSpeed;
+            break;
+        case 32 :
+            camera.position.x += xSpeed;
+            break;
+        case 37 : // turn left
+            camera.position.x += xSpeed;
+            break;
+        case 39 : // turn right
+            camera.position.x += xSpeed;
+            break;
+        
     }
-    if (keyCode == 87) { // 전진
-        // let a = [camera.position.x += ySpeed,camera.position.y,camera.position.z]
-        camera.position.z -= ySpeed;
-    } else if (keyCode == 83) { // 후진
-        camera.position.z += ySpeed;
-    } else if (keyCode == 65) { // 왼쪽전진
-        camera.position.x -= xSpeed;
-    } else if (keyCode == 68) { // 오른쪽 전진
-        camera.position.x += xSpeed;
-    } else if (keyCode == 32) {
-        // camera.position.set(0, 0, 0);
-    }
-
     console.log(`keyCode ${keyCode}`);
     console.log(camera.position.x);
 
@@ -142,10 +166,15 @@ function onDocumentKeyDown(event) {
 //     .start();
 
 function updateCamera() {
-    console.log(camera.position.x,camera.position.y,camera.position.z);
+
+    console.log(camera.position.x,camera.position.y,camera.position.z, 100);
     
-    camera.lookAt(camera.position.x,camera.position.y,camera.position.z);
+    // camera.lookAt(camera.position.x,camera.position.y,camera.position.z);
+    camera.position.set( camera.position.x,camera.position.y,camera.position.z);
     camera.updateProjectionMatrix();
+
+// controls.update();
+
 }
 		
 var render = function() {
