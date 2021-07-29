@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    
+    <script>
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+
+//Chao
+var geometry = new THREE.BoxGeometry( 100, 1, 100 );
+var material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+var chao = new THREE.Mesh( geometry, material );
+scene.add( chao );
+chao.receiveShadow = true;
+
+// Cubo1
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+cube.position.y = 2;
+cube.castShadow = true;
+
+var ambientLight = new THREE.AmbientLight(0xffffff,0.5);
+scene.add(ambientLight);
+var spotLight = new THREE.SpotLight(0xffffff);
+spotLight.position.set(0, 20, 8);
+spotLight.castShadow = true;
+scene.add(spotLight);
+
+camera.position.x = 0;
+camera.position.y = 2;
+camera.position.z = 5;
+
+window.addEventListener('deviceorientation', function(e) {
+    cube.rotation.x = e.alpha/100;
+    cube.rotation.y = e.beta/100;
+    cube.rotation.z = e.gamma/100;
+});
+
+var x, y;
+var pressed=false;
+var enabled =true;
+
+window.addEventListener( 'mousedown', onTouchStart );
+window.addEventListener( 'touchstart', onTouchStart );
+function onTouchStart( event ) {
+	if ( event.changedTouches ) {
+		x = event.changedTouches[ 0 ].pageX;
+		y = event.changedTouches[ 0 ].pageY;
+        console.log(x,y);
+        
+	} else {
+		x = event.clientX;
+		y = event.clientY;
+        console.log(x,y);
+	}
+
+    pressed=true;
+	
+}
+
+window.addEventListener( 'mouseup', onTouchEnd );
+window.addEventListener( 'touchend', onTouchEnd );
+window.addEventListener("keydown", onDocumentKeyDown, false);
+
+function onTouchEnd( event ) {
+    pressed=false;
+}
+
+var xSpeed = 1;
+var ySpeed = 1;
+
+function onDocumentKeyDown(event) {
+    var keyCode = event.which;
+    let a = [0,0,0];
+    switch (keyCode) {
+        case 87 : 
+    }
+    if (keyCode == 87) { // 전진
+        // let a = [camera.position.x += ySpeed,camera.position.y,camera.position.z]
+        camera.position.z -= ySpeed;
+    } else if (keyCode == 83) { // 후진
+        camera.position.z += ySpeed;
+    } else if (keyCode == 65) { // 왼쪽전진
+        camera.position.x -= xSpeed;
+    } else if (keyCode == 68) { // 오른쪽 전진
+        camera.position.x += xSpeed;
+    } else if (keyCode == 32) {
+        // camera.position.set(0, 0, 0);
+    }
+
+    console.log(`keyCode ${keyCode}`);
+    console.log(camera.position.x);
+
+    updateCamera(a);
+};
+
+
+// new TWEEN.Tween(camera.rotation)
+//     .to(
+//       {
+//         x: endRotation.x,
+//         y: endRotation.y,
+//         z: endRotation.z,
+//       }, 500)
+//     .easing(TWEEN.Easing.Quadratic.InOut)
+//     .onComplete(() => {
+//       new TWEEN.Tween(camera.position)
+//         .to({
+//           x: marker.cameraPositionX,
+//           y: camera.position.y,
+//           z: marker.cameraPositionZ,
+//         })
+//         .easing(TWEEN.Easing.Quadratic.InOut)
+//         .onUpdate(() => {
+//           camera.lookAt(storedMarkerPosition);
+//         })
+//         .onComplete(() => {
+//           camera.lookAt(storedMarkerPosition);
+//           radius = Math.hypot(...Object.values(markerPosition));
+//           phi = Math.acos(markerPosition.y / radius);
+//           theta = Math.atan2(markerPosition.z, markerPosition.x);
+//           lon = THREE.Math.radToDeg(theta);
+//           lat = 90 - THREE.Math.radToDeg(phi);
+//         })
+//         .start();
+//     })
+//     .start();
+
+function updateCamera() {
+    console.log(camera.position.x,camera.position.y,camera.position.z);
+    
+    camera.lookAt(camera.position.x,camera.position.y,camera.position.z);
+    camera.updateProjectionMatrix();
+}
+		
+var render = function() {
+    requestAnimationFrame(render);
+    // cube.rotation.x += 0.03;
+    // cube.rotation.y += 0.02;
+    // cube.rotation.z += 0.01;
+    renderer.render(scene, camera);
+};
+
+var animate = function () {
+	requestAnimationFrame( animate );
+
+    if(pressed){
+        if(x<window.innerWidth/2){	
+            camera.rotation.y += 0.02;
+        }else{
+            camera.rotation.y -= 0.02;	
+        }
+    }	
+	
+	renderer.render(scene, camera);
+};
+
+animate();
+    </script>
+</body>
+</html>
