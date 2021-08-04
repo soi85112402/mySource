@@ -185,6 +185,7 @@
 				// floor
 
 				let floorGeometry = new THREE.PlaneGeometry( 2000, 2000, 100, 100 );
+				var material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
 				floorGeometry.rotateX( - Math.PI / 2 );
 
 				// vertex displacement
@@ -218,14 +219,14 @@
 				// floorGeometry.setAttribute( 'color', '0xffff00' );
 				floorGeometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colorsFloor, 3 ) );
 
-				const floorMaterial = new THREE.MeshBasicMaterial( { vertexColors: true } );
+				const floorMaterial = new THREE.MeshBasicMaterial( { color: 0x000000 } );
 
 				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
 				scene.add( floor );
 
 				// objects
 
-				const boxGeometry = new THREE.BoxGeometry( 20, 20, 20 ).toNonIndexed();
+				const boxGeometry = new THREE.BoxGeometry( 60, 40, 1 ).toNonIndexed();
 
 				position = boxGeometry.attributes.position;
 				const colorsBox = [];
@@ -239,15 +240,22 @@
 
 				boxGeometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colorsBox, 3 ) );
 
-				for ( let i = 0; i < 500; i ++ ) {
+				for ( let i = 0; i < 20; i ++ ) {
+					const texture = new THREE.TextureLoader().load( './11.png' );
 
-					const boxMaterial = new THREE.MeshPhongMaterial( { specular: 0xababab, flatShading: true, vertexColors: true } );
-					boxMaterial.color.setHSL( Math.random() * 0.2 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
 
+					// const boxMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+					const boxMaterial = new THREE.MeshLambertMaterial( { map: texture } );
+					// const boxMaterial = new THREE.Material( { specular: 0xababab, flatShading: true, vertexColors: true } );
+					// boxMaterial.color.setHSL( Math.random() * 0.2 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
 					const box = new THREE.Mesh( boxGeometry, boxMaterial );
-					box.position.x = Math.floor( Math.random() * 20 - 10 ) * 20;
-					box.position.y = Math.floor( Math.random() * 20 ) * 20 + 10;
+
+					box.position.x = Math.floor( Math.random() * 40 - 10 ) * 20;
+					box.position.y = Math.floor( Math.random() * 10 ) * 10 + 10;
 					box.position.z = Math.floor( Math.random() * 20 - 10 ) * 20;
+					// box.position.x = Math.floor( Math.random() * 20 - 10 ) * 20;
+					// box.position.y = Math.floor( Math.random() * 20 ) * 20 + 10;
+					// box.position.z = Math.floor( Math.random() * 20 - 10 ) * 20;
 
 					scene.add( box );
 					box.receiveShadow = true;

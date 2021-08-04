@@ -7,11 +7,12 @@
     <title>Document</title>
 <script type="module">
     // import {/* FREEZE_DATA1, */ FREEZE_DATA2} from './export_test.js';
-    import aaa from './export_test.js';
+    import testModel from './model_test.js';
     import loadingEnd from './loading_test.js';
 
-    console.log(aaa.freezeData1());
-    console.log(aaa.freezeData2());
+    console.log(testModel.setFreeze1('ssssss'));
+    console.log(testModel.getFreeze1());
+    console.log(testModel.getFreeze2());
 
     // const instance = new exportLiteral('1111');
     
