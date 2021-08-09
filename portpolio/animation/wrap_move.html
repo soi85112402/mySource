@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
+    <script src="./wrap_move.js" defer></script>
+<style>
+*{ margin: 0; padding: 0; }
+body{
+    overflow: hidden;
+}
+
+.wrap{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+}
+
+section{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0,0,-1000px);
+}
+
+.fixed{
+    position: relative;
+}
+
+.fixed .header{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 1px solid aqua;
+}
+.fixed nav{
+    display: flex;
+    justify-content: space-between;
+}
+.fixed .lnb, .fixed .rnb{
+    width: 200px;
+    height: calc(100vh - 200px);
+    border: 1px solid aqua;
+}
+.fixed .rnb{
+    justify-self: right;
+}
+
+.sub.active{
+    transform: translateZ(0px);
+}
+
+.pageIn{
+    animation-duration: 1.5s;
+    animation-name: slidein;
+    animation-timing-function:cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* animation-iteration-count: infinite; */
+    animation-fill-mode: forwards;
+    z-index: 1001;
+}
+.pageOut{
+    animation-duration: 1s;
+    animation-name: slideout;
+    animation-fill-mode: forwards;
+    /* animation-iteration-count: infinite; */
+    z-index: 1000;
+}
+
+@keyframes slidein {
+  100% {
+    display: block;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes slideout {
+    0% {
+        opacity: 1;
+    }
+    100%{
+        transform: translateZ(1000px);
+        opacity: 0;
+    }
+}
+
+</style>    
+</head>
+<body>
+    <div class="wrap">
+        <section style="transform: translate3d(0,0,0px);">
+            <div class="fixed">
+                <div class="header" style="background-color: brown;"></div>
+                <nav>
+                    <div class="lnb" style="background-color: brown;"></div>
+                    <div class="rnb" style="background-color: brown;"></div>
+                </nav>
+            </div>
+        
+            <div class="page"></div>
+        </section>
+        <section style="transform: translate3d(0,0,-1000px);">
+            <div class="fixed">
+                <div class="header" style="background-color: blue;"></div>
+                <nav>
+                    <div class="lnb" style="background-color: blue;"></div>
+                    <div class="rnb" style="background-color: blue;"></div>
+                </nav>
+            </div>
+        
+            <div class="page"></div>
+        </section>
+        
+        <section style="transform: translate3d(0,0,-2000px);">
+            <div class="fixed">
+                <div class="header" style="background-color: green;"></div>
+                <nav>
+                    <div class="lnb" style="background-color: green;"></div>
+                    <div class="rnb" style="background-color: green;"></div>
+                </nav>
+            </div>
+        
+            <div class="page"></div>
+        </section>
+    </div>
+</body>
+</html>

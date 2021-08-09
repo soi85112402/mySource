@@ -37,11 +37,16 @@ class PointerLockControls extends EventDispatcher {
 		const scope = this;
 
 		function onMouseMove( event ) {
+			console.log(event);
+			
 
 			if ( scope.isLocked === false ) return;
 
 			const movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
 			const movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+			// const movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0 || event.touches[0].clientX;
+			// const movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0 || event.touches[0].clientY;
+			console.log(movementX,movementY)
 
 			_euler.setFromQuaternion( camera.quaternion );
 
@@ -83,6 +88,7 @@ class PointerLockControls extends EventDispatcher {
 		this.connect = function () {
 
 			scope.domElement.ownerDocument.addEventListener( 'mousemove', onMouseMove );
+			scope.domElement.ownerDocument.addEventListener( 'touchmove', onMouseMove );
 			scope.domElement.ownerDocument.addEventListener( 'pointerlockchange', onPointerlockChange );
 			scope.domElement.ownerDocument.addEventListener( 'pointerlockerror', onPointerlockError );
 
@@ -91,6 +97,7 @@ class PointerLockControls extends EventDispatcher {
 		this.disconnect = function () {
 
 			scope.domElement.ownerDocument.removeEventListener( 'mousemove', onMouseMove );
+			scope.domElement.ownerDocument.removeEventListener( 'touchmove', onMouseMove );
 			scope.domElement.ownerDocument.removeEventListener( 'pointerlockchange', onPointerlockChange );
 			scope.domElement.ownerDocument.removeEventListener( 'pointerlockerror', onPointerlockError );
 
