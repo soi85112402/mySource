@@ -1,7 +1,7 @@
 'use strict';
 
 import Nodes from './nodes.js';
-import { getYoutubeList } from './youtube_api.js';
+import { getYoutubeList } from './youtube_service.js';
 
 const initialState = {
   nodes:{

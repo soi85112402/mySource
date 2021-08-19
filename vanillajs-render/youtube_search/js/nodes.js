@@ -20,6 +20,10 @@ export default class Nodes {
   
   render() {
     console.log('this.state.nodes',this.state.nodes)
-    this.$target.innerHTML = this.state.nodes.items.map(node => `<li>${node.snippet.title}</li>`).join('');
+    this.$target.innerHTML = this.state.nodes.items.map(node => `
+    <li>
+      <img src="${node.snippet.thumbnails.default.url}">
+      <span class="title">${node.snippet.title}</span>
+    </li>`).join('');
   }
 }

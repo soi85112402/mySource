@@ -1,11 +1,9 @@
 'use strict';
 
-const API_KEY = 'AIzaSyCuykthN9JYnA2j7kVUKxgK8wQAAjPBrv8';
-const API_END_POINT = 'https://www.googleapis.com/youtube/v3';
+import apis from '/js/apis/apis.js';
 
 export const getYoutubeList = async () => {
-  const res = await fetch(`${API_END_POINT}/search?part=snippet&q=kpop+music&key=${API_KEY}`);
-
+  const res = await apis.mostPopular();
   try {
     if (!res.ok) {
       throw new Error('error');
