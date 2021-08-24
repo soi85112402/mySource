@@ -5,6 +5,8 @@ const API_END_POINT = 'https://www.googleapis.com/youtube/v3';
 const PARAMS = 'part=snippet&regionCode=kr'
 
 export default {
-    mostPopular : (next) => fetch(`${API_END_POINT}/search?${PARAMS}&chart=mostPopular&maxResults=5&key=${API_KEY}&pageToken=${next || ''}`),
-    search : (search_value, next) => fetch(`${API_END_POINT}/search?${PARAMS}&maxResults=5&key=${API_KEY}&pageToken=${next || ''}&search_value=${search_value || ''}`)
+    mostPopular : (next) => fetch(`/json_sample.json`),
+    search : (next) => fetch(`/json_sample.json`)
+    // mostPopular : (next) => fetch(`${API_END_POINT}/search?${PARAMS}&chart=mostPopular&maxResults=5&key=${API_KEY}&pageToken=${next || ''}`),
+    // search : (search_value, next) => fetch(`${API_END_POINT}/search?${PARAMS}&maxResults=5&key=${API_KEY}&pageToken=${next || ''}&search_value=${search_value || ''}`)
 };

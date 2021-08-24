@@ -11,7 +11,7 @@ export const getYoutubeList = async () => {
     return await res.json();
 
   } catch(e) {
-    throw new Error(e.messege);
+    throw new Error(e.message);
   }
 
 };
