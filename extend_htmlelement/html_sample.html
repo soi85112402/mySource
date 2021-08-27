@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+class MyCustomElement extends HTMLElement {
+  constructor() {
+    super();
+
+    var self = this;
+
+    self.addEventListener('click', _ => {
+      self.innerHTML = '<b> I have been clicked </b>';
+    });
+  }
+}
+
+customElements.define('my-custom-element', MyCustomElement);        
+    </script>
+</head>
+<body>
+    <my-custom-element>
+        I have not been clicked yet
+    </my-custom-element>
+    
+</body>
+</html>
