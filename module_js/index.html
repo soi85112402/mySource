@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="module">
+    // import {/* FREEZE_DATA1, */ FREEZE_DATA2} from './export_test.js';
+    import testModel from './model_test.js';
+    import loadingEnd from './loading_test.js';
+
+    console.log(testModel.setFreeze1('ssssss'));
+    console.log(testModel.getFreeze1());
+    console.log(testModel.getFreeze2());
+
+    // const instance = new exportLiteral('1111');
+    
+    // exportLiteral.name = "sss1111111";
+
+    // instance.setName('sssssssssssssssssssss');
+    // console.log(instance.getName());
+
+    // console.log(FREZZE_DATA1);
+    // console.log(FREZZE_DATA2);
+    
+
+</script>
+
+<script nomodule>
+    alert('오래된 브라우저를 사용하고 있다면 type=module이 붙은 스크립트는 무시됩니다. 대신 이 alert 문이 실행됩니다.')
+</script>
+</head>
+<body>
+    
+</body>
+</html>

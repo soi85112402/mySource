@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<<<<<<< HEAD
     <style>
         *{
             margin: 0;
             padding: 0;
         }
+=======
+    <script src="./PointerLockControls.js" type="module"></script>
+    <style>
+*{margin: 0;padding: 0;}
+
+>>>>>>> 5880fa27de6a44b8ec2afd6289484b33d3596a83
     </style>
 </head>
 <body>
@@ -33,7 +40,7 @@ scene.add( chao );
 chao.receiveShadow = true;
 
 // Cubo1
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var geometry = new THREE.BoxGeometry( 1, 1, .1 );
 var material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
@@ -71,21 +78,17 @@ function onTouchStart( event ) {
 	if ( event.changedTouches ) {
 		x = event.changedTouches[ 0 ].pageX;
 		y = event.changedTouches[ 0 ].pageY;
-        console.log(x,y);
-        
 	} else {
 		x = event.clientX;
 		y = event.clientY;
-        console.log(x,y);
 	}
-
     pressed=true;
-	
 }
 
 window.addEventListener( 'mouseup', onTouchEnd );
 window.addEventListener( 'touchend', onTouchEnd );
 window.addEventListener("keydown", onDocumentKeyDown, false);
+window.addEventListener("keyup", onDocumentKeyUp, false);
 
 function onTouchEnd( event ) {
     pressed=false;
@@ -94,14 +97,24 @@ function onTouchEnd( event ) {
 var xSpeed = 1;
 var ySpeed = 1;
 
+<<<<<<< HEAD
 
 
     camera.position.x = radius * Math.cos( angle );  
 camera.position.z = radius * Math.sin( angle );
 angle += 0.01;
+=======
+let moveForward = false;
+let moveBackward = false;
+let moveLeft = false;
+let moveRight = false;
+let canJump = false;
+>>>>>>> 5880fa27de6a44b8ec2afd6289484b33d3596a83
 
 function onDocumentKeyDown(event) {
+    
     var keyCode = event.which;
+<<<<<<< HEAD
     let a = [0,0,0];
     switch (keyCode) {
         case 87 : 
@@ -129,10 +142,97 @@ function onDocumentKeyDown(event) {
     }
     console.log(`keyCode ${keyCode}`);
     console.log(camera.position.x);
+=======
+    switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+            moveForward = true;
+            break;
+        case 'ArrowLeft':
+        case 'KeyA':
+            moveLeft = true;
+            break;
+        case 'ArrowDown':
+        case 'KeyS':
+            moveBackward = true;
+            break;
+        case 'ArrowRight':
+        case 'KeyD':
+            moveRight = true;
+            break;
 
-    updateCamera(a);
+        case 'Space':
+            if ( canJump === true ) velocity.y += 350;
+            canJump = false;
+            break;
+        // case 87 : // 전진
+        //     camera.position.z -= ySpeed;
+
+        //     break;
+        // case 83 : // 후진
+        //     camera.position.z += ySpeed;
+
+        //     break;
+        // case 65 : // 좌 전진
+        //     camera.position.x -= xSpeed;
+
+        //     break;
+        // case 68 : // 우 전진
+        //     camera.position.x += xSpeed;
+
+        //     break;
+        // case 37 : // turn left
+        //     camera.position.z += ySpeed;
+
+        //     break;
+        // case 39 : // turn right
+        //     camera.position.z += ySpeed;
+
+        //     break;
+        // case 38 : // upon
+        //     camera.position.z += ySpeed;
+
+        //     break;
+        // case 40 : // down
+        //     camera.position.z += ySpeed;
+
+        //     break;
+    }
+
+    // console.log(`keyCode ${keyCode}`);
+    // console.log(camera.position.x);
+>>>>>>> 5880fa27de6a44b8ec2afd6289484b33d3596a83
+
+    // updateCamera(a);
 };
 
+
+function onDocumentKeyUp(event) {
+
+    switch ( event.code ) {
+    
+    case 'ArrowUp':
+    case 'KeyW':
+        moveForward = false;
+        break;
+    
+    case 'ArrowLeft':
+    case 'KeyA':
+        moveLeft = false;
+        break;
+    
+    case 'ArrowDown':
+    case 'KeyS':
+        moveBackward = false;
+        break;
+    
+    case 'ArrowRight':
+    case 'KeyD':
+        moveRight = false;
+        break;
+    
+    }
+}
 
 // new TWEEN.Tween(camera.rotation)
 //     .to(

@@ -1,0 +1,170 @@
+{
+    "kind": "youtube#searchListResponse",
+    "etag": "c5lacKY1i6CF3-NarnChwF221Q8",
+    "nextPageToken": "CAUQAA",
+    "regionCode": "KR",
+    "pageInfo": {
+        "totalResults": 1000000,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#searchResult",
+            "etag": "uAV-1cIx839oAI9y90t5CP4wOs4",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "0nxsS4B85E8"
+            },
+            "snippet": {
+                "publishedAt": "2020-11-03T11:30:00Z",
+                "channelId": "UC6V2k9ESjk3-LG1G3rCbZ9w",
+                "title": "KPOP CHART - Kpop Playlist | TWICE, BTS, BLACKPINK, TXT, CL, MAMAMOO, SEVENTEEN, JBJ95, Alexa,...",
+                "description": "",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/0nxsS4B85E8/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/0nxsS4B85E8/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/0nxsS4B85E8/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "한국 팝_KPOP",
+                "liveBroadcastContent": "none",
+                "publishTime": "2020-11-03T11:30:00Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "rwm9Ms12nTI8rM3UHt1XV1kVO78",
+            "id": {
+                "kind": "youtube#channel",
+                "channelId": "UCaxNIEIYPfxkLT7T2Feg7bQ"
+            },
+            "snippet": {
+                "publishedAt": "2017-04-04T04:25:30Z",
+                "channelId": "UCaxNIEIYPfxkLT7T2Feg7bQ",
+                "title": "Kpop Music",
+                "description": "",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLQWPx1zhV5j-lBhW468wKde4BcOMsUkiXDBRkbR=s88-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLQWPx1zhV5j-lBhW468wKde4BcOMsUkiXDBRkbR=s240-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLQWPx1zhV5j-lBhW468wKde4BcOMsUkiXDBRkbR=s800-c-k-c0xffffffff-no-rj-mo"
+                    }
+                },
+                "channelTitle": "Kpop Music",
+                "liveBroadcastContent": "none",
+                "publishTime": "2017-04-04T04:25:30Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "BTpPtzVu-N0X_cgyaCrcyxxf1c8",
+            "id": {
+                "kind": "youtube#playlist",
+                "playlistId": "PLOHoVaTp8R7dfrJW5pumS0iD_dhlXKv17"
+            },
+            "snippet": {
+                "publishedAt": "2018-11-20T00:19:41Z",
+                "channelId": "UCYF2mpdsDop3KhxvmsVEhrA",
+                "title": "KPOP 2021 - K-POP Songs Playlist 2021",
+                "description": "KPOP 2021 - K-POP Songs Playlist 2021 Every week, we update our playlist with the latest Korean Pop Hits. The playlist accompanies our weekly Best KPOP ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/c9RzZpV460k/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/c9RzZpV460k/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/c9RzZpV460k/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "#NewMusic Top Charts",
+                "liveBroadcastContent": "none",
+                "publishTime": "2018-11-20T00:19:41Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "A7ZVCnCbfs1X8D1TEO__66mXzR8",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "RFHj_vjVxqM"
+            },
+            "snippet": {
+                "publishedAt": "2021-01-30T00:24:29Z",
+                "channelId": "UCuPNoEZUan3WybeJawo9gNQ",
+                "title": "24/7 힙스터들의 성지 K-Pop/Krnb Radio",
+                "description": "새로운 인디음악이 끊임없이 나오는 24시간 K-Pop 라디오 스포티파이, 멜론에서도 만나 볼 수 있어요! Thank you for listening :) Listen to the playlist on Spotify ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/RFHj_vjVxqM/default_live.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/RFHj_vjVxqM/mqdefault_live.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/RFHj_vjVxqM/hqdefault_live.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "KozyPop",
+                "liveBroadcastContent": "live",
+                "publishTime": "2021-01-30T00:24:29Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "f_RCp6uQI8Y7FnghV-fGPZM_QWk",
+            "id": {
+                "kind": "youtube#channel",
+                "channelId": "UCX9evQpYIiARsXmvs2EXa3A"
+            },
+            "snippet": {
+                "publishedAt": "2014-01-02T01:13:27Z",
+                "channelId": "UCX9evQpYIiARsXmvs2EXa3A",
+                "title": "Kpop Music",
+                "description": "",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLSSYgvtpgCGdHvmaHDtt2fqwK0owz7omeZYsGFrKA=s88-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLSSYgvtpgCGdHvmaHDtt2fqwK0owz7omeZYsGFrKA=s240-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/ytc/AKedOLSSYgvtpgCGdHvmaHDtt2fqwK0owz7omeZYsGFrKA=s800-c-k-c0xffffffff-no-rj-mo"
+                    }
+                },
+                "channelTitle": "Kpop Music",
+                "liveBroadcastContent": "none",
+                "publishTime": "2014-01-02T01:13:27Z"
+            }
+        }
+    ]
+}
